@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<form method="post" action="/predict">
+    <div class="form-group">
+        <label for="yom">Present Value(PV)</label>
+        <input type="number" class="form-control" id="pv" placeholder="Enter Present Value (PV)"  name="pv">
+      </div>
+
+      <div class="form-group">
+        <label for="tenor">Tenor</label>
+        <input type="number" class="form-control" id="tenor" placeholder="Enter Tenor Value" name="tenor">
+      </div>
+
+    <!-- <div class="form-group">
+      <label for="strock">Strock</label>
+      <select class="form-control form-control-sm"  name="stroke">
+        <option value="2 stroke">2 Strock</option>
+        <option value="4 stroke">4 Strock</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="light">Light Type</label>
+      <select class="form-control form-control-sm"  name="light">
+        <option value="Single Light">Single Light</option>
+        <option value="Double Light">Double Light</option>
+      </select>
+    </div> -->
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  {% if prediction %}
+
+  <div class="alert alert-dark mt-5" role="alert">
+     PAYMENT IS  <h2><b>{{prediction}} </b></h2>
+  </div>
+
+
+  {% endif %}
+
+
+{% endblock %}
