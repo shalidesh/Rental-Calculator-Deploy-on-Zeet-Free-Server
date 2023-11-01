@@ -18,17 +18,19 @@ def predict_datapoint():
     if request.method == 'POST':
         pv = request.form.get("pv")
         tenor = request.form.get("tenor")
-        r_value=0.2
+        r_value=0.22
 
         pv=float(pv)
         tenor=float(tenor)
 
         try:
             payment=(pv*(r_value/12))/(1-(1+(r_value/12))** (-tenor))
+            rounded_value = round(payment, 2)
         except Exception as e:
+            rounded_value="Zero Division Error"
             print("calculateError",e)
 
-        return render_template('rental.html', prediction=payment)
+        return render_template('rental.html', prediction=rounded_value)
 
     elif request.method == 'GET':
         return render_template('rental.html')
