@@ -5,7 +5,7 @@
 
 <form method="post" action="/predict">
     <div class="form-group">
-        <label for="yom">Present Value(PV)</label>
+        <label for="yom">Facillity Amount</label>
         <input type="number" class="form-control" id="pv" placeholder="Enter Present Value (PV)"  name="pv">
       </div>
 
@@ -36,7 +36,7 @@
   {% if prediction %}
 
   <div class="alert alert-dark mt-5" role="alert">
-     PAYMENT IS  <h2><b>{{prediction}} </b></h2>
+     PAYMENT IS  <h2><b>{{prediction}} LKR </b></h2>
   </div>
 
 
